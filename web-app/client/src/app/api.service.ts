@@ -11,7 +11,7 @@ const httpOptionsJson = {
 
 const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
-const baseURL = `http://13.209.56.166:8081`;
+const baseURL = `http://3.36.180.104:8081`;
 const queryAllCarsURL = `/queryAllCars`;
 const querySelectCarURL = `/querySelectCar`;
 const createCarURL = `/createCar`;
