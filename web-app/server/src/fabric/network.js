@@ -247,7 +247,7 @@ exports.signedContract = async function(key, contract_signB , state, userName) {
             return;
         }
         // Create a new gateway for connecting to our peer node.
-        const gateway = new Gateway();
+        const gateway = new Gateway(); 
         await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
         const network = await gateway.getNetwork('org1channel');
