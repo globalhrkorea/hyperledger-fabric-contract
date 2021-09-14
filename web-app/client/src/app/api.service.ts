@@ -61,7 +61,6 @@ export class ApiService {
       this.login$ = res.result; // done or fail
       this.token$ = res.token; // token_ifo
       this.user$ = res.user; // user_info
-      this.userName$ = res.user.name;
       console.log('login$ >>>', this.login$ = res.result);
       // console.log('유저 이름 >>>', this.user$)
     });
