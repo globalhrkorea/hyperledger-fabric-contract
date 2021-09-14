@@ -47,7 +47,7 @@ services:
         - ./crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/:/var/hyperledger/orderer/tls
         - orderer2.example.com:/var/hyperledger/production/orderer
     ports:
-    - 8050:7050
+    - 7050:7050
 
   couchdb3:
     container_name: couchdb3
