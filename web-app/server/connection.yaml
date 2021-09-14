@@ -7,6 +7,23 @@ client:
     timeout:
       peer:
         endorser: '300'
+
+channels:
+  org3channel:
+    orderers:
+      - orderer.example.com
+    peers:
+      peer0.org3.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer1.org3.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
 organizations:
   Org3:
     mspid: Org3MSP
@@ -15,75 +32,73 @@ organizations:
     - peer1.org3.example.com
     certificateAuthorities:
     - ca.org3.example.com
+    adminPrivateKey:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/64c47cf0f6d767b306e13c96ff95693847ec18b78e13e9bbd1f21b6cfe8a56b1_sk
+    signedCert:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/signcerts/Admin@org3.example.com-cert.pem
+
+orderers:
+  orderer.example.com:
+    url: grpcs://13.209.56.166:7050
+    grpcOptions:
+      ssl-target-name-override: orderer.example.com
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
+  orderer2.example.com:
+    url: grpcs://13.124.175.72:7050
+    grpcOptions:
+      ssl-target-name-override: orderer2.example.com
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
+  orderer3.example.com:
+    url: grpcs://3.36.180.104:7050
+    grpcOptions:
+      ssl-target-name-override: orderer3.example.com
+    tlsCACerts:
+      path: ./../fabric-samples/raft-5node-swarm/crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
+  orderer4.example.com:
+    url: grpcs://3.36.151.247:7050
+    grpcOptions:
+      ssl-target-name-override: orderer.example.com
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
+  orderer5.example.com:
+    url: grpcs://54.180.58.25:7050
+    grpcOptions:
+      ssl-target-name-override: orderer5.example.com
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/ordererOrganizations/example.com/orderers/orderer5.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
 peers:
   peer0.org3.example.com:
     url: grpcs://3.36.180.104:11051
     tlsCACerts:
-      pem: |
-        -----BEGIN CERTIFICATE-----
-        MIICVjCCAf2gAwIBAgIQef2I4N0ZdJr/Wx4bvmGFEzAKBggqhkjOPQQDAjB2MQsw
-        CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
-        YW5jaXNjbzEZMBcGA1UEChMQb3JnMy5leGFtcGxlLmNvbTEfMB0GA1UEAxMWdGxz
-        Y2Eub3JnMy5leGFtcGxlLmNvbTAeFw0yMTA5MTAwMDA3MDBaFw0zMTA5MDgwMDA3
-        MDBaMHYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH
-        Ew1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExBvcmczLmV4YW1wbGUuY29tMR8wHQYD
-        VQQDExZ0bHNjYS5vcmczLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
-        AQcDQgAEIJu0jlq8scBz7iYboh4eTmLPJ4B6ieu9udVIqPKoPMnSWmrS++X2jR9D
-        +f29FD6P1gr2L5OeL7fzzucn4CqvsaNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1Ud
-        JQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1Ud
-        DgQiBCDmlrdRRqzqMxYhKUWPvcr9/tFb4VxlyOQ8j9Y94yY+TjAKBggqhkjOPQQD
-        AgNHADBEAiBIs9lOu/qaFrowtzT9rvxrOe7hWcRNKOifJRpL2vAJZAIgXlh53inX
-        RahBGWw7N5pdJ4zjDibff0kFDmgqtcw0bc0=
-        -----END CERTIFICATE-----
-
-
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/msp/tlscacerts/tlsca.org3.example.com-cert.pem
     grpcOptions:
       ssl-target-name-override: peer0.org3.example.com
       hostnameOverride: peer0.org3.example.com
-  peer1.org3.example.com:
-    url: grpcs://3.36.180.104:12051
-    tlsCACerts:
-      pem: |
-        -----BEGIN CERTIFICATE-----
-        MIICVjCCAf2gAwIBAgIQef2I4N0ZdJr/Wx4bvmGFEzAKBggqhkjOPQQDAjB2MQsw
-        CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
-        YW5jaXNjbzEZMBcGA1UEChMQb3JnMy5leGFtcGxlLmNvbTEfMB0GA1UEAxMWdGxz
-        Y2Eub3JnMy5leGFtcGxlLmNvbTAeFw0yMTA5MTAwMDA3MDBaFw0zMTA5MDgwMDA3
-        MDBaMHYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH
-        Ew1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExBvcmczLmV4YW1wbGUuY29tMR8wHQYD
-        VQQDExZ0bHNjYS5vcmczLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0D
-        AQcDQgAEIJu0jlq8scBz7iYboh4eTmLPJ4B6ieu9udVIqPKoPMnSWmrS++X2jR9D
-        +f29FD6P1gr2L5OeL7fzzucn4CqvsaNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1Ud
-        JQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1Ud
-        DgQiBCDmlrdRRqzqMxYhKUWPvcr9/tFb4VxlyOQ8j9Y94yY+TjAKBggqhkjOPQQD
-        AgNHADBEAiBIs9lOu/qaFrowtzT9rvxrOe7hWcRNKOifJRpL2vAJZAIgXlh53inX
-        RahBGWw7N5pdJ4zjDibff0kFDmgqtcw0bc0=
-        -----END CERTIFICATE-----
 
+  peer1.org3.example.com:
+    url: grpcs://3.36.151.247:12051
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/msp/tlscacerts/tlsca.org3.example.com-cert.pem
     grpcOptions:
       ssl-target-name-override: peer1.org3.example.com
       hostnameOverride: peer1.org3.example.com
+
 certificateAuthorities:
   ca.org3.example.com:
     url: https://3.36.180.104:9054
-    caName: ca.org3.example.com
-    tlsCACerts:
-      pem: |
-        -----BEGIN CERTIFICATE-----
-        MIICUTCCAfigAwIBAgIRAM06X+w1N6Nxub/rkeYN+OkwCgYIKoZIzj0EAwIwczEL
-        MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
-        cmFuY2lzY28xGTAXBgNVBAoTEG9yZzMuZXhhbXBsZS5jb20xHDAaBgNVBAMTE2Nh
-        Lm9yZzMuZXhhbXBsZS5jb20wHhcNMjEwOTEwMDAwNzAwWhcNMzEwOTA4MDAwNzAw
-        WjBzMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN
-        U2FuIEZyYW5jaXNjbzEZMBcGA1UEChMQb3JnMy5leGFtcGxlLmNvbTEcMBoGA1UE
-        AxMTY2Eub3JnMy5leGFtcGxlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IA
-        BKMGTzPMeYUNu162Xmhlh8OOvRL8JVACt3zpCXDg31Fm0UopE9A9p12WnLG8sLy+
-        v+iE+hWJWTBwo9mQnlGTgt+jbTBrMA4GA1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAU
-        BggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4EIgQg
-        Wc4GGhXnD1NnA6Rd51xTaaVIcZUDzO30DKZJ8iHWN08wCgYIKoZIzj0EAwIDRwAw
-        RAIga7maG+Zz7iETEB2DQqF4ht5Pa2Fw843iauuVkCj1GBkCIAWtHTkDr9FIk+Hh
-        JGirECy2uGjc9rFR7oaq9ebor+4m
-        -----END CERTIFICATE-----
-
     httpOptions:
       verify: false
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/ca/ca.org3.example.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: adminpw
+    caName: ca.org3.example.com
+
