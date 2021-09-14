@@ -16,7 +16,6 @@ export class MainComponent implements OnInit {
 
 
   _info : any;
-  userName$: any;  
 
   ngOnInit() {
      // 클라이언트의 localStorage에 저장된 Token 값을 get
