@@ -11,7 +11,7 @@ const httpOptionsJson = {
 
 const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
-const baseURL = `http://13.209.56.166:8081`; // 기본 url
+const baseURL = `http://13.124.175.72:8081`; // 기본 url
 const totalNumberContractsURL = `/totalNumberContracts` // 모든 계약서 표시(관리자)
 const queryAllCarsURL = `/queryAllCars`; // 유저에 따른 계약서 목록 표시
 const querySelectCarURL = `/querySelectCar`; // 계약서 상세 조회
