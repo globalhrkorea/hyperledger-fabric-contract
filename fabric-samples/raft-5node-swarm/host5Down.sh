@@ -1,5 +1,5 @@
 docker rm -f $(docker ps -aq)
-docker-compose -f host5.yaml -f docker-compose-explorer down -v
+docker-compose -f host5.yaml down -v
 cd ../first-network/
 ./byfn.sh down
 
