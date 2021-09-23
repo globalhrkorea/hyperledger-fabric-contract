@@ -30,11 +30,7 @@ exports.totalNumberContracts = async function(userName) {
         const gateway = new Gateway();
         await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-<<<<<<< HEAD
         const network = await gateway.getNetwork('org4channel');
-=======
-        const network = await gateway.getNetwork('org3channel');
->>>>>>> origin/host4_관리자페이지
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Evaluate the specified transaction.
@@ -69,11 +65,7 @@ exports.createContract = async function(key, contract_name, contract_contents, c
         const gateway = new Gateway();
         await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-<<<<<<< HEAD
         const network = await gateway.getNetwork('org4channel');
-=======
-        const network = await gateway.getNetwork('org3channel');
->>>>>>> origin/host4_관리자페이지
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Submit the specified transaction.
@@ -110,11 +102,7 @@ exports.modifyContract = async function(key, new_contract_name, new_contract_con
         const gateway = new Gateway();
         await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-<<<<<<< HEAD
         const network = await gateway.getNetwork('org4channel');
-=======
-        const network = await gateway.getNetwork('org3channel');
->>>>>>> origin/host4_관리자페이지
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Submit the specified transaction.
@@ -153,11 +141,7 @@ exports.queryContractList = async function(userName) {
         const gateway = new Gateway();
         await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-<<<<<<< HEAD
         const network = await gateway.getNetwork('org4channel');
-=======
-        const network = await gateway.getNetwork('org3channel');
->>>>>>> origin/host4_관리자페이지
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Evaluate the specified transaction.
@@ -192,11 +176,7 @@ exports.selectContract = async function(key, userName) {
         const gateway = new Gateway();
         await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-<<<<<<< HEAD
         const network = await gateway.getNetwork('org4channel');
-=======
-        const network = await gateway.getNetwork('org3channel');
->>>>>>> origin/host4_관리자페이지
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Submit the specified transaction.
@@ -234,11 +214,7 @@ exports.sendContract = async function(key, contract_signA , contract_receiver, s
         const gateway = new Gateway();
         await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-<<<<<<< HEAD
         const network = await gateway.getNetwork('org4channel');
-=======
-        const network = await gateway.getNetwork('org3channel');
->>>>>>> origin/host4_관리자페이지
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Submit the specified transaction.
@@ -274,11 +250,7 @@ exports.signedContract = async function(key, contract_signB , state, userName) {
         const gateway = new Gateway();
         await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-<<<<<<< HEAD
         const network = await gateway.getNetwork('org4channel');
-=======
-        const network = await gateway.getNetwork('org3channel');
->>>>>>> origin/host4_관리자페이지
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Submit the specified transaction.

@@ -163,6 +163,16 @@ app.post("/login", (req, res) => {
 }
 );
 
+// 관리자일 시 모든 계약서 표시
+app.post('/totalNumberContracts', (req, res) => {
+  const userName = req.body.userName;
+  console.log(userName);
+  network.totalNumberContracts(userName)
+    .then((response) => {
+      res.send(response);
+    });
+})
+
 
 // 작성자, 받은자 기준으로 목록조회
 app.post('/queryAllCars', (req, res) => {

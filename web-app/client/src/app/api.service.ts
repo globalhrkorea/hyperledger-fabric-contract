@@ -11,16 +11,16 @@ const httpOptionsJson = {
 
 const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
-const baseURL = `http://3.36.151.247:8081`;
-const queryAllCarsURL = `/queryAllCars`;
-const querySelectCarURL = `/querySelectCar`;
-const createCarURL = `/createCar`;
-const changeCarOwnerURL = `/changeCarOwner`;
-const sendContractURL = `/sendContract`;
-const makeContractURL = `/makeContract`;
-const signUpURL = `/signUp`;
-const loginURL = `/login`;
-
+const baseURL = `http://3.36.151.247:8081`; // 기본 url
+const totalNumberContractsURL = `/totalNumberContracts` // 모든 계약서 표시(관리자)
+const queryAllCarsURL = `/queryAllCars`; // 유저에 따른 계약서 목록 표시
+const querySelectCarURL = `/querySelectCar`; // 계약서 상세 조회
+const createCarURL = `/createCar`; // 계약서 생성
+const changeCarOwnerURL = `/changeCarOwner`; // 계약서 수정
+const sendContractURL = `/sendContract`; // 계약서 서명 후 전송
+const makeContractURL = `/makeContract`; // 계약서 최종 서명
+const signUpURL = `/signUp`; // 회원가입
+const loginURL = `/login`; // 로그인
 
 @Injectable()
 export class ApiService {

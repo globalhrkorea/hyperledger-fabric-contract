@@ -8,11 +8,7 @@
 			"password": "exploreradminpw"
 		},
 		"enableAuthentication": true,
-<<<<<<< HEAD
 		"organization": "Org4MSP",
-=======
-		"organization": "Org3MSP",
->>>>>>> origin/host4_관리자페이지
 		"connection": {
 			"timeout": {
 				"peer": {
@@ -23,45 +19,27 @@
 		}
 	},
 	"channels": {
-<<<<<<< HEAD
 		"org4channel": {
 			"peers": {
 				"peer0.org4.example.com": {},
 				"peer1.org4.example.com": {}
-=======
-		"org3channel": {
-			"peers": {
-				"peer0.org3.example.com": {},
-				"peer1.org3.example.com": {}
->>>>>>> origin/host4_관리자페이지
 			}
 		}
+		
 	},
 	"organizations": {
-<<<<<<< HEAD
-		"Org4MSP": {
-			"mspid": "Org4MSP",
-			"adminPrivateKey": {
-				"path": "/tmp/crypto/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp/keystore/b2a87f460089e2129118e3782614f252250f75b612b1bea21e445a87913de03d_sk"
-			},
-			"peers": ["peer0.org4.example.com","peer1.org4.example.com"],
-			"signedCert": {
-				"path": "/tmp/crypto/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp/signcerts/Admin@org4.example.com-cert.pem"
-=======
-		"Org3MSP": {
-			"mspid": "Org3MSP",
-			"adminPrivateKey": {
-				"path": "/tmp/crypto/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/5865fcb46c12c2c0b38bd2bd7b034fb5cc8dadeba1f67c6cbde67e584b27c320_sk"
-			},
-			"peers": ["peer0.org3.example.com","peer1.org3.example.com"],
-			"signedCert": {
-				"path": "/tmp/crypto/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/signcerts/Admin@org3.example.com-cert.pem"
->>>>>>> origin/host4_관리자페이지
-			}
-		}
+        "Org4MSP": {
+            "mspid": "Org4MSP",
+            "adminPrivateKey": {
+                "path": "/tmp/crypto/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp/keystore/b2a87f460089e2129118e3782614f252250f75b612b1bea21e445a87913de03d_sk"
+            },
+            "peers": ["peer0.org4.example.com","peer1.org4.example.com"],
+            "signedCert": {
+                "path": "/tmp/crypto/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp/signcerts/Admin@org4.example.com-cert.pem"
+            }
+        }
 	},
 	"peers": {
-<<<<<<< HEAD
 		"peer0.org4.example.com": {
 			"tlsCACerts": {
 				"path": "/tmp/crypto/peerOrganizations/org4.example.com/peers/peer0.org4.example.com/tls/ca.crt"
@@ -73,19 +51,7 @@
                 "path": "/tmp/crypto/peerOrganizations/org4.example.com/peers/peer1.org4.example.com/tls/ca.crt"
             },
             "url": "grpcs://peer1.org4.example.com:14051"
-=======
-		"peer0.org3.example.com": {
-			"tlsCACerts": {
-				"path": "/tmp/crypto/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt"
-			},
-			"url": "grpcs://peer0.org3.example.com:11051"
-		},
-		"peer1.org3.example.com": {
-            "tlsCACerts": {
-                "path": "/tmp/crypto/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls/ca.crt"
-            },
-            "url": "grpcs://peer1.org3.example.com:12051"
->>>>>>> origin/host4_관리자페이지
         }
 	}
 }
+
