@@ -417,56 +417,21 @@ Channel: &ChannelDefaults
 ################################################################################
 Profiles:
 
-    Org1Channel:
+    MyChannel:
         Consortium: OrgConsortium
         <<: *ChannelDefaults
         Application:
             <<: *ApplicationDefaults
             Organizations:
                 - *Org1
-            Capabilities:
-                <<: *ApplicationCapabilities
-
-    Org2Channel:
-        Consortium: OrgConsortium
-        <<: *ChannelDefaults
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
                 - *Org2
-            Capabilities:
-                <<: *ApplicationCapabilities
-
-    Org3Channel:
-        Consortium: OrgConsortium
-        <<: *ChannelDefaults
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
                 - *Org3
-            Capabilities:
-                <<: *ApplicationCapabilities
-
-    Org4Channel:
-        Consortium: OrgConsortium
-        <<: *ChannelDefaults
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
                 - *Org4
-            Capabilities:
-                <<: *ApplicationCapabilities
-
-    Org5Channel:
-        Consortium: OrgConsortium
-        <<: *ChannelDefaults
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
                 - *Org5
             Capabilities:
                 <<: *ApplicationCapabilities
 
+    
     SampleMultiNodeEtcdRaft:
         <<: *ChannelDefaults
         Capabilities:
