@@ -33,7 +33,7 @@ organizations:
     certificateAuthorities:
     - ca.org5.example.com
     adminPrivateKey:
-      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org5.example.com/users/Admin@org5.example.com/msp/keystore/d7001fb3e89f005a2a4b2d41ac9a4269abbe9e40c77ca235934b8b160a3729a7_sk
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org5.example.com/users/Admin@org5.example.com/msp/keystore/7adbd606e6d89b37987b19c1f337e1afad607eaf1f83a145c910a1052385ace2_sk
     signedCert:
       path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org5.example.com/users/Admin@org5.example.com/msp/signcerts/Admin@org5.example.com-cert.pem
 
@@ -62,12 +62,12 @@ orderers:
   orderer4.example.com:
     url: grpcs://3.36.151.247:7050
     grpcOptions:
-      ssl-target-name-override: orderer4.example.com
+      ssl-target-name-override: orderer.example.com
     tlsCACerts:
       path: ../../fabric-samples/raft-5node-swarm/crypto-config/ordererOrganizations/example.com/orderers/orderer4.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 
   orderer5.example.com:
-          url: grpcs://54.180.58.25:7050
+    url: grpcs://54.180.58.25:7050
     grpcOptions:
       ssl-target-name-override: orderer5.example.com
     tlsCACerts:
@@ -75,7 +75,7 @@ orderers:
 
 peers:
   peer0.org5.example.com:
-    url: grpcs://54.180.58.25:15051:15051
+    url: grpcs://54.180.58.25:15051
     tlsCACerts:
       path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org5.example.com/peers/peer0.org5.example.com/msp/tlscacerts/tlsca.org5.example.com-cert.pem
     grpcOptions:
@@ -83,7 +83,7 @@ peers:
       hostnameOverride: peer0.org5.example.com
 
   peer1.org5.example.com:
-    url: grpcs://13.209.56.166:16051:16051
+    url: grpcs://13.209.56.166:16051
     tlsCACerts:
       path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org5.example.com/peers/peer1.org5.example.com/msp/tlscacerts/tlsca.org5.example.com-cert.pem
     grpcOptions:
