@@ -32,7 +32,10 @@
 			"adminPrivateKey": {
 				"path": "/tmp/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/d7001fb3e89f005a2a4b2d41ac9a4269abbe9e40c77ca235934b8b160a3729a7_sk"
 			},
-			"peers": ["peer0.org2.example.com","peer1.org2.example.com"],
+			"peers": [
+				"peer0.org2.example.com",
+				"peer1.org2.example.com"
+			],
 			"signedCert": {
 				"path": "/tmp/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem"
 			}
@@ -46,10 +49,10 @@
 			"url": "grpcs://peer0.org2.example.com:9051"
 		},
 		"peer1.org2.example.com": {
-            "tlsCACerts": {
-                "path": "/tmp/crypto/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/ca.crt"
-            },
-            "url": "grpcs://peer1.org2.example.com:10051"
-        }
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer1.org2.example.com:10051"
+		}
 	}
 }
