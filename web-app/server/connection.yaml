@@ -9,6 +9,7 @@ client:
         endorser: '300'
 
 channels:
+
   org2channel:
     orderers:
       - orderer.example.com
@@ -23,7 +24,6 @@ channels:
         chaincodeQuery: true
         ledgerQuery: true
         eventSource: true
-
 organizations:
   Org2:
     mspid: Org2MSP
@@ -101,4 +101,3 @@ certificateAuthorities:
       - enrollId: admin
         enrollSecret: adminpw
     caName: ca.org2.example.com
-

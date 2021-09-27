@@ -60,4 +60,3 @@ exports.registerUser = async function(userName) {
         process.exit(1);
     }
 }
-
