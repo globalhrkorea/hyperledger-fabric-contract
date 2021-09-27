@@ -12,7 +12,6 @@ networks:
       name: first-network
 
 services:
-
   explorerdb.mynetwork4.com:
     image: hyperledger/explorer-db:latest
     container_name: explorerdb.mynetwork4.com

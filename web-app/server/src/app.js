@@ -173,7 +173,6 @@ app.post('/totalNumberContracts', (req, res) => {
     });
 })
 
-
 // 작성자, 받은자 기준으로 목록조회
 app.post('/queryAllCars', (req, res) => {
   const userName = req.body.userName;
