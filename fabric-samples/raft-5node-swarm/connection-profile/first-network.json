@@ -8,7 +8,7 @@
 			"password": "exploreradminpw"
 		},
 		"enableAuthentication": true,
-		"organization": "Org3MSP",
+		"organization": "Org4MSP",
 		"connection": {
 			"timeout": {
 				"peer": {
@@ -19,37 +19,38 @@
 		}
 	},
 	"channels": {
-		"org3channel": {
+		"mychannel": {
 			"peers": {
-				"peer0.org3.example.com": {},
-				"peer1.org3.example.com": {}
+				"peer0.org4.example.com": {},
+				"peer1.org4.example.com": {}
 			}
 		}
+		
 	},
 	"organizations": {
-		"Org3MSP": {
-			"mspid": "Org3MSP",
-			"adminPrivateKey": {
-				"path": "/tmp/crypto/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/5865fcb46c12c2c0b38bd2bd7b034fb5cc8dadeba1f67c6cbde67e584b27c320_sk"
-			},
-			"peers": ["peer0.org3.example.com","peer1.org3.example.com"],
-			"signedCert": {
-				"path": "/tmp/crypto/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/signcerts/Admin@org3.example.com-cert.pem"
-			}
-		}
+        "Org4MSP": {
+            "mspid": "Org4MSP",
+            "adminPrivateKey": {
+                "path": "/tmp/crypto/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp/keystore/b2a87f460089e2129118e3782614f252250f75b612b1bea21e445a87913de03d_sk"
+            },
+            "peers": ["peer0.org4.example.com","peer1.org4.example.com"],
+            "signedCert": {
+                "path": "/tmp/crypto/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp/signcerts/Admin@org4.example.com-cert.pem"
+            }
+        }
 	},
 	"peers": {
-		"peer0.org3.example.com": {
+		"peer0.org4.example.com": {
 			"tlsCACerts": {
-				"path": "/tmp/crypto/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt"
+				"path": "/tmp/crypto/peerOrganizations/org4.example.com/peers/peer0.org4.example.com/tls/ca.crt"
 			},
-			"url": "grpcs://peer0.org3.example.com:11051"
+			"url": "grpcs://peer0.org4.example.com:13051"
 		},
-		"peer1.org3.example.com": {
+		"peer1.org4.example.com": {
             "tlsCACerts": {
-                "path": "/tmp/crypto/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls/ca.crt"
+                "path": "/tmp/crypto/peerOrganizations/org4.example.com/peers/peer1.org4.example.com/tls/ca.crt"
             },
-            "url": "grpcs://peer1.org3.example.com:12051"
+            "url": "grpcs://peer1.org4.example.com:14051"
         }
 	}
 }
