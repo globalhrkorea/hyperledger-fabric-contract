@@ -138,94 +138,100 @@ app.post("/login", (req, res) => {
   // DecodeToken
   const decodeToken = jwt.decode(token, { complete: true });
 
-  try {
-    // DB에 저장되어 있는 id 값을 확인
-    InfoSchema.findOne({ id: req.body.id }, (err, user) => {
+
+  // DB에 저장되어 있는 id 값을 확인
+  InfoSchema.findOne({ id: req.body.id }, (err, user) => {
+    // id 값이 없으면?
+    if (!user) {
+      res.status(200).json({
+        result: "login_fail"
+      });
+    } else {
       // 비밀번호 해시값과 비교
-      // const hashPassword = bcrypt.compareSync(req.body.password, user.password);
-      // if (hashPassword == true) {
-      if (user) {
-        res.status(200).json({
-          result: "login_done",
-          token,
-          user,
-        });
-        exports.user_auth = function () {
-          return user.author;
-        };
-        // }
-      } else {
-        console.log("로그인 실패");
-        res.status(200).send({
-          result: "login_fail",
-        });
-      }
+      bcrypt.compare(req.body.password, user.password, (err, same) => {
+        // async callback
+        if (same) {
+          res.status(200).json({
+            result: "login_done",
+            token,
+            user,
+          });
+        }
+      });
+    }
+  });
+}
+);
+
+// 관리자일 시 모든 계약서 표시
+app.post('/totalNumberContracts', (req, res) => {
+  const userName = req.body.userName;
+  console.log(userName);
+  network.totalNumberContracts(userName)
+    .then((response) => {
+      res.send(response);
     });
-  } catch (err) {
-    console.log(err);
-    res.status(500).send("server error");
-  }
-});
+})
 
 // 작성자, 받은자 기준으로 목록조회
 app.post('/queryAllCars', (req, res) => {
   const userName = req.body.userName;
   console.log(userName);
   network.queryContractList(userName)
-    .then((response) => {      
-        res.send(response);
+    .then((response) => {
+      res.send(response);
     });
 })
 
 // 계약서 상세조회
-app.post('/querySelectCar', (req, res)=> {
-    network.selectContract(req.body.key, req.body.userName)
-      .then((response) => {
-        res.send(response)
-      })
+app.post('/querySelectCar', (req, res) => {
+  network.selectContract(req.body.key, req.body.userName)
+    .then((response) => {
+      res.send(response)
+    })
 });
 // 계약서 생성
-app.post('/createCar', (req, res) => { 
+app.post('/createCar', (req, res) => {
   console.log(req.body);
   // 계약서 전체 갯수 불러오기
-  
+
   network.totalNumberContracts(req.body.userName)
     .then((response) => {
       var carsRecord = JSON.parse(response);
       var numCars = String(carsRecord.length + 1);
       // 자리수 만큼 남는 공간 0으로 채우기
-      var newKey = numCars.padStart(8,'0');       
-      console.log("newkey >>>>>>>>>>>",newKey)
+      var newKey = numCars.padStart(8, '0');
+      console.log("newkey >>>>>>>>>>>", newKey)
       // 계약상태
       var newState = '계약 대기'
       network.createContract(newKey, req.body.contract_name, req.body.contract_contents, req.body.contract_companyA, req.body.contract_companyB, req.body.contract_date, req.body.contract_period, newState, req.body.userName)
-      .then((response) => {
-        res.send(response)
-      })
-    })  
+        .then((response) => {
+          res.send(response)
+        })
+    })
 })
 // 계약서 수정
 app.post('/changeCarOwner', (req, res) => {
-      network.modifyContract(req.body.key, req.body.new_contract_name, req.body.new_contract_contents, req.body.new_contract_companyB, req.body.new_contract_receiver, req.body.new_contract_date, req.body.new_contract_period, req.body.userName)
-          .then((response) => {
-            res.send(response)
-      })
+  network.modifyContract(req.body.key, req.body.new_contract_name, req.body.new_contract_contents, req.body.new_contract_companyB, req.body.new_contract_receiver, req.body.new_contract_date, req.body.new_contract_period, req.body.userName)
+    .then((response) => {
+      res.send(response)
+    })
 })
 app.post('/sendContract', (req, res) => {
   const changeState = '계약 중';
   console.log(req.body);
   network.sendContract(req.body.key, req.body.contract_signA, req.body.contract_receiver, changeState, req.body.userName)
-      .then((response) => {
-        res.send(response)
-  })
+    .then((response) => {
+      res.send(response)
+    })
 })
 app.post('/makeContract', (req, res) => {
   const changeState = '계약 완료';
   console.log(req.body);
   network.signedContract(req.body.key, req.body.contract_signB, changeState, req.body.userName)
-      .then((response) => {
-        res.send(response)
-  })
+    .then((response) => {
+      res.send(response)
+    })
 })
 
 app.listen(process.env.PORT || 8081);

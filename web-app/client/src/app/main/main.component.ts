@@ -19,9 +19,6 @@ export class MainComponent implements OnInit {
   userName$: any;  
 
   ngOnInit() {
-    // 로그인한 유저 이름 정보
-    this.userName$ = this.apiService.userName$
-
      // 클라이언트의 localStorage에 저장된 Token 값을 get
      this._info = localStorage.getItem('Auth_Token');
      console.log("Token_info >>>>> ", this._info);
@@ -29,7 +26,11 @@ export class MainComponent implements OnInit {
      // localStorage에 저장된 Token 값을 decode 해주어서
      // access.html의 _info.id, _info.name을 출력
      this._info = this.jwt.decodeToken(this._info);
-     this.apiService.queryAllCars(this._info.id);
+     if(this._info.id == 'admin'){
+        this.apiService.totalNumberContracts(this._info.id)
+     } else{
+	this.apiService.queryAllCars(this._info.id)
+     }
   }
 
   // 로그아웃
