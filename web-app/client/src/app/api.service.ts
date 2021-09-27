@@ -11,7 +11,7 @@ const httpOptionsJson = {
 
 const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
 
-const baseURL = `http://3.36.151.247:8081`; // 기본 url
+const baseURL = `http://3.36.180.104:8081`; // 기본 url
 const totalNumberContractsURL = `/totalNumberContracts` // 모든 계약서 표시(관리자)
 const queryAllCarsURL = `/queryAllCars`; // 유저에 따른 계약서 목록 표시
 const querySelectCarURL = `/querySelectCar`; // 계약서 상세 조회
@@ -21,6 +21,7 @@ const sendContractURL = `/sendContract`; // 계약서 서명 후 전송
 const makeContractURL = `/makeContract`; // 계약서 최종 서명
 const signUpURL = `/signUp`; // 회원가입
 const loginURL = `/login`; // 로그인
+
 
 @Injectable()
 export class ApiService {
@@ -80,7 +81,6 @@ export class ApiService {
 
   }
 
-  // 계약서 수정
   changeCarOwner(key: string, contract_name: string, contract_contents: string, contract_companyB: string, contract_receiver: string, contract_date: string, contract_period: string, userName: string) {
     return this.http.post(baseURL + changeCarOwnerURL, { 'key': key, 'new_contract_name': contract_name, 'new_contract_contents': contract_contents, 'new_contract_companyB': contract_companyB, 'new_contract_receiver': contract_receiver, 'new_contract_date': contract_date, 'new_contract_period': contract_period , 'userName' : userName },
       { headers }).toPromise().then((result) => { this.queryAllCars(userName); });

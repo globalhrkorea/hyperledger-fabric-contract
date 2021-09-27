@@ -96,7 +96,7 @@ organizations:
     certificateAuthorities:
     - ca.org3.example.com
     adminPrivateKey:
-      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/fcdc639ba8d791320e0af29e87970f903775cc4c26ca0cc88915aa4a3f937c37_sk
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/5865fcb46c12c2c0b38bd2bd7b034fb5cc8dadeba1f67c6cbde67e584b27c320_sk
     signedCert:
       path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/signcerts/Admin@org3.example.com-cert.pem
   Org4:
