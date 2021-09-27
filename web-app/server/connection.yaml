@@ -9,10 +9,50 @@ client:
         endorser: '300'
 
 channels:
-  org5channel:
+  mychannel:
     orderers:
       - orderer.example.com
     peers:
+      peer0.org1.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer1.org1.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer0.org2.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer1.org2.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer0.org3.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer1.org3.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer0.org4.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+      peer1.org4.example.com:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
       peer0.org5.example.com:
         endorsingPeer: true
         chaincodeQuery: true
@@ -25,6 +65,50 @@ channels:
         eventSource: true
 
 organizations:
+  Org1:
+    mspid: Org1MSP
+    peers:
+    - peer0.org1.example.com
+    - peer1.org1.example.com
+    certificateAuthorities:
+    - ca.org1.example.com
+    adminPrivateKey:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/4762ca042bee4a0a20c6c9d13b35eefb4267659f9ca864f2fcdf026e3d93f4f1_sk
+    signedCert:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
+  Org2:
+    mspid: Org2MSP
+    peers:
+    - peer0.org2.example.com
+    - peer1.org2.example.com
+    certificateAuthorities:
+    - ca.org2.example.com
+    adminPrivateKey:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/a706a96f19bd7159eeedf7d50e1025410d983ad03fd78bc70d710357d96241f4_sk
+    signedCert:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem
+  Org3:
+    mspid: Org3MSP
+    peers:
+    - peer0.org3.example.com
+    - peer1.org3.example.com
+    certificateAuthorities:
+    - ca.org3.example.com
+    adminPrivateKey:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/fcdc639ba8d791320e0af29e87970f903775cc4c26ca0cc88915aa4a3f937c37_sk
+    signedCert:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/signcerts/Admin@org3.example.com-cert.pem
+  Org4:
+    mspid: Org4MSP
+    peers:
+    - peer0.org4.example.com
+    - peer1.org4.example.com
+    certificateAuthorities:
+    - ca.org4.example.com
+    adminPrivateKey:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp/keystore/85c14ce8b136126ce699df93ecb1c18d4d470fb4b472ca3cab7358e58edc0f11_sk
+    signedCert:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp/signcerts/Admin@org4.example.com-cert.pem
   Org5:
     mspid: Org5MSP
     peers:
@@ -33,9 +117,10 @@ organizations:
     certificateAuthorities:
     - ca.org5.example.com
     adminPrivateKey:
-      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org5.example.com/users/Admin@org5.example.com/msp/keystore/7adbd606e6d89b37987b19c1f337e1afad607eaf1f83a145c910a1052385ace2_sk
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org5.example.com/users/Admin@org5.example.com/msp/keystore/558bdcb9eb3e0e8aed84e173226e3df105402742cb65d8127788bb73e65f9f99_sk
     signedCert:
       path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org5.example.com/users/Admin@org5.example.com/msp/signcerts/Admin@org5.example.com-cert.pem
+
 
 orderers:
   orderer.example.com:
@@ -74,6 +159,70 @@ orderers:
       path: ../../fabric-samples/raft-5node-swarm/crypto-config/ordererOrganizations/example.com/orderers/orderer5.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 
 peers:
+  peer0.org1.example.com:
+    url: grpcs://13.209.56.166:7051
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/tlscacerts/tlsca.org1.example.com-cert.pem
+    grpcOptions:
+      ssl-target-name-override: peer0.org1.example.com
+      hostnameOverride: peer0.org1.example.com
+
+  peer1.org1.example.com:
+    url: grpcs://13.124.175.72:8051
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/msp/tlscacerts/tlsca.org1.example.com-cert.pem
+    grpcOptions:
+      ssl-target-name-override: peer1.org1.example.com
+      hostnameOverride: peer1.org1.example.com
+
+  peer0.org2.example.com:
+    url: grpcs://13.124.175.72:9051
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp/tlscacerts/tlsca.org2.example.com-cert.pem
+    grpcOptions:
+      ssl-target-name-override: peer0.org2.example.com
+      hostnameOverride: peer0.org2.example.com
+
+  peer1.org2.example.com:
+    url: grpcs://3.36.180.104:10051
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/msp/tlscacerts/tlsca.org2.example.com-cert.pem
+    grpcOptions:
+      ssl-target-name-override: peer1.org2.example.com
+      hostnameOverride: peer1.org2.example.com
+
+  peer0.org3.example.com:
+    url: grpcs://3.36.180.104:11051
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/msp/tlscacerts/tlsca.org3.example.com-cert.pem
+    grpcOptions:
+      ssl-target-name-override: peer0.org3.example.com
+      hostnameOverride: peer0.org3.example.com
+
+  peer1.org3.example.com:
+    url: grpcs://3.36.151.247:12051
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/msp/tlscacerts/tlsca.org3.example.com-cert.pem
+    grpcOptions:
+      ssl-target-name-override: peer1.org3.example.com
+      hostnameOverride: peer1.org3.example.com
+
+  peer0.org4.example.com:
+    url: grpcs://3.36.151.247:13051
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org4.example.com/peers/peer0.org4.example.com/msp/tlscacerts/tlsca.org4.example.com-cert.pem
+    grpcOptions:
+      ssl-target-name-override: peer0.org4.example.com
+      hostnameOverride: peer0.org4.example.com
+
+  peer1.org4.example.com:
+    url: grpcs://54.180.58.25:14051
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org4.example.com/peers/peer1.org4.example.com/msp/tlscacerts/tlsca.org4.example.com-cert.pem
+    grpcOptions:
+      ssl-target-name-override: peer1.org4.example.com
+      hostnameOverride: peer1.org4.example.com
+
   peer0.org5.example.com:
     url: grpcs://54.180.58.25:15051
     tlsCACerts:
@@ -91,14 +240,57 @@ peers:
       hostnameOverride: peer1.org5.example.com
 
 certificateAuthorities:
+  ca.org1.example.com:
+    url: https://13.209.56.166:7054
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: adminpw
+    caName: ca.org1.example.com
+
+  ca.org2.example.com:
+    url: https://13.124.175.72:8054
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org2.example.com/ca/ca.org2.example.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: adminpw
+    caName: ca.org2.example.com
+
+  ca.org3.example.com:
+    url: https://3.36.180.104:9054
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/ca/ca.org3.example.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: adminpw
+    caName: ca.org3.example.com
+
+  ca.org4.example.com:
+    url: https://3.36.151.247:10054
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/ca/ca.org3.example.com-cert.pem
+    registrar:
+      - enrollId: admin
+        enrollSecret: adminpw
+    caName: ca.org3.example.com
+
   ca.org5.example.com:
     url: https://54.180.58.25:11054
     httpOptions:
       verify: false
     tlsCACerts:
-      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org5.example.com/ca/ca.org5.example.com-cert.pem
+      path: ../../fabric-samples/raft-5node-swarm/crypto-config/peerOrganizations/org3.example.com/ca/ca.org3.example.com-cert.pem
     registrar:
       - enrollId: admin
         enrollSecret: adminpw
-    caName: ca.org5.example.com
-
+    caName: ca.org3.example.com
