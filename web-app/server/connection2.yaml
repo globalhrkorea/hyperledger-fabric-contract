@@ -17,7 +17,7 @@ organizations:
     - ca.org4.example.com
 peers:
   peer0.org4.example.com:
-    url: grpcs://3.36.151.247:7051
+    url: grpcs://3.36.151.247:13051
     tlsCACerts:
       pem: |
         -----BEGIN CERTIFICATE-----
@@ -41,7 +41,7 @@ peers:
       ssl-target-name-override: peer0.org4.example.com
       hostnameOverride: peer0.org4.example.com
   peer1.org4.example.com:
-    url: grpcs://3.36.151.247:8051
+    url: grpcs://3.36.151.247:14051
     tlsCACerts:
       pem: |
         -----BEGIN CERTIFICATE-----
@@ -64,7 +64,7 @@ peers:
       hostnameOverride: peer1.org4.example.com
 certificateAuthorities:
   ca.org4.example.com:
-    url: https://3.36.151.247:7054
+    url: https://3.36.151.247:10054
     caName: ca.org4.example.com
     tlsCACerts:
       pem: |

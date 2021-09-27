@@ -65,9 +65,7 @@ exports.createContract = async function(key, contract_name, contract_contents, c
         const gateway = new Gateway();
         await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-
         const network = await gateway.getNetwork('mychannel');
-
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Submit the specified transaction.
@@ -143,7 +141,6 @@ exports.queryContractList = async function(userName) {
         const gateway = new Gateway();
         await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-
         const network = await gateway.getNetwork('mychannel');
         // Get the contract from the network.
         const contract = network.getContract('contract');
