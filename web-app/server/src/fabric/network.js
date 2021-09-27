@@ -28,9 +28,9 @@ exports.totalNumberContracts = async function(userName) {
         }
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
+        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: false, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-        const network = await gateway.getNetwork('org2channel');
+        const network = await gateway.getNetwork('mychannel');
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Evaluate the specified transaction.
@@ -63,11 +63,13 @@ exports.createContract = async function(key, contract_name, contract_contents, c
         // Create a new gateway for connecting to our peer node.
         console.log('we here in CreateContract')
         const gateway = new Gateway();
-        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
+        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: false, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-        const network = await gateway.getNetwork('org2channel');
+        const network = await gateway.getNetwork('mychannel');
+        console.log("network-------------------------------------------------------")
         // Get the contract from the network.
         const contract = network.getContract('contract');
+        console.log("contract---------------------------------------------------")
         // Submit the specified transaction.
         // CreateContract transaction - requires 5 argument, ex: ('CreateContract', 'CAR12', 'Honda', 'Accord', 'Black', 'Tom')
         await contract.submitTransaction('createContract', key, contract_name, contract_contents, contract_companyA, contract_companyB, contract_date, contract_period, state, userName);
@@ -100,9 +102,9 @@ exports.modifyContract = async function(key, new_contract_name, new_contract_con
         }
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
+        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: false, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-        const network = await gateway.getNetwork('org2channel');
+        const network = await gateway.getNetwork('mychannel');
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Submit the specified transaction.
@@ -139,9 +141,9 @@ exports.queryContractList = async function(userName) {
         }
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
+        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: false, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-        const network = await gateway.getNetwork('org2channel');
+        const network = await gateway.getNetwork('mychannel');
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Evaluate the specified transaction.
@@ -174,9 +176,9 @@ exports.selectContract = async function(key, userName) {
         }
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
+        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: false, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-        const network = await gateway.getNetwork('org2channel');
+        const network = await gateway.getNetwork('mychannel');
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Submit the specified transaction.
@@ -212,9 +214,9 @@ exports.sendContract = async function(key, contract_signA , contract_receiver, s
         }
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
+        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: false, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-        const network = await gateway.getNetwork('org2channel');
+        const network = await gateway.getNetwork('mychannel');
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Submit the specified transaction.
@@ -247,10 +249,10 @@ exports.signedContract = async function(key, contract_signB , state, userName) {
             return;
         }
         // Create a new gateway for connecting to our peer node.
-        const gateway = new Gateway();
-        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: true } });
+        const gateway = new Gateway(); 
+        await gateway.connect(connectionFile, { wallet, identity: userName, discovery: { enabled: false, asLocalhost: true } });
         // Get the network (channel) our contract is deployed to.
-        const network = await gateway.getNetwork('org2channel');
+        const network = await gateway.getNetwork('mychannel');
         // Get the contract from the network.
         const contract = network.getContract('contract');
         // Submit the specified transaction.

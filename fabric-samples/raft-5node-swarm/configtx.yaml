@@ -72,6 +72,8 @@ Organizations:
             # encoded in the genesis block in the Application section context
             - Host: peer0.org1.example.com
               Port: 7051
+            - Host: peer1.org1.example.com
+              Port: 8051
 
     - &Org2
         # DefaultOrg defines the organization which is used in the sampleconfig
@@ -103,6 +105,8 @@ Organizations:
             # encoded in the genesis block in the Application section context
             - Host: peer0.org2.example.com
               Port: 9051
+            - Host: peer1.org2.example.com
+              Port: 10051
 
     - &Org3
         # DefaultOrg defines the organization which is used in the sampleconfig
@@ -134,6 +138,8 @@ Organizations:
             # encoded in the genesis block in the Application section context
             - Host: peer0.org3.example.com
               Port: 11051
+            - Host: peer1.org3.example.com
+              Port: 12051
 
 
     - &Org4
@@ -166,6 +172,8 @@ Organizations:
             # encoded in the genesis block in the Application section context
             - Host: peer0.org4.example.com
               Port: 13051
+            - Host: peer1.org4.example.com
+              Port: 14051
 
 
     - &Org5
@@ -198,6 +206,8 @@ Organizations:
             # encoded in the genesis block in the Application section context
             - Host: peer0.org5.example.com
               Port: 15051
+            - Host: peer1.org5.example.com
+              Port: 16051
 
 ################################################################################
 #
@@ -417,56 +427,21 @@ Channel: &ChannelDefaults
 ################################################################################
 Profiles:
 
-    Org1Channel:
+    MyChannel:
         Consortium: OrgConsortium
         <<: *ChannelDefaults
         Application:
             <<: *ApplicationDefaults
             Organizations:
                 - *Org1
-            Capabilities:
-                <<: *ApplicationCapabilities
-
-    Org2Channel:
-        Consortium: OrgConsortium
-        <<: *ChannelDefaults
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
                 - *Org2
-            Capabilities:
-                <<: *ApplicationCapabilities
-
-    Org3Channel:
-        Consortium: OrgConsortium
-        <<: *ChannelDefaults
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
                 - *Org3
-            Capabilities:
-                <<: *ApplicationCapabilities
-
-    Org4Channel:
-        Consortium: OrgConsortium
-        <<: *ChannelDefaults
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
                 - *Org4
-            Capabilities:
-                <<: *ApplicationCapabilities
-
-    Org5Channel:
-        Consortium: OrgConsortium
-        <<: *ChannelDefaults
-        Application:
-            <<: *ApplicationDefaults
-            Organizations:
                 - *Org5
             Capabilities:
                 <<: *ApplicationCapabilities
 
+    
     SampleMultiNodeEtcdRaft:
         <<: *ChannelDefaults
         Capabilities:
