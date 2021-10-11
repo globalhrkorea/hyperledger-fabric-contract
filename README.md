@@ -166,8 +166,8 @@ docker exec -e CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fa
  docker-compose -f host n .yaml down -v
 ```
 
-
-asdfasfdasdfa
-asdfasdfas
-dfasdfasdfasf
-dsadfasd
+qweqwe
+aasdfasdgqacvzs
+xvz
+xcvzxcvardgqcz
+adsfasdfa
