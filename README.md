@@ -167,4 +167,4 @@ docker exec -e CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fa
 ```
 
 
-3dd23232223221122221223222222
+3dd232322232211222212232222222
